@@ -1,0 +1,4 @@
+[submodule "SpeckleUi"]
+	path = SpeckleUi
+	url = https://github.com/speckleworks/SpeckleUi.git
+	branch = master
