@@ -4,11 +4,13 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.Civil.ApplicationServices;
 using SpeckleUiBase;
+using SpeckleAutoCAD.UI;
 
 namespace SpeckleAutoCAD
 {
-    public class Class1 : IExtensionApplication
+    public class Program : IExtensionApplication
     {
+        public static bool Launched = false;
         public static SpeckleUiWindow SpeckleWindow;
 
         #region IExtensionApplication Members
@@ -33,15 +35,24 @@ namespace SpeckleAutoCAD
             // Gets the current document, and prints some basic information about it
             // to the command editor window.
 
-            var bindings = new SpeckleUIBindings();
+            
 
             CivilDocument doc = Autodesk.Civil.ApplicationServices.CivilApplication.ActiveDocument;
+
+            var bindings = new SpeckleUIBindingsAutoCAD(doc);
+
             ObjectIdCollection alignments = doc.GetAlignmentIds();
             ObjectIdCollection sites = doc.GetSiteIds();
             String docInfo = String.Format("\nHello Speckle!");
             Application.DocumentManager.MdiActiveDocument.Editor.WriteMessage(docInfo);
 
             SpeckleWindow = new SpeckleUiWindow(bindings);
+
+            var helper = new System.Windows.Interop.WindowInteropHelper(SpeckleWindow);
+            helper.Owner = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
+
+            SpeckleWindow.Show();
+            Launched = true;
 
         }
     }
