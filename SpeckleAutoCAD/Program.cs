@@ -10,6 +10,7 @@ namespace SpeckleAutoCAD
 {
     public class Program : IExtensionApplication
     {
+        public static bool Launched = false;
         public static SpeckleUiWindow SpeckleWindow;
 
         #region IExtensionApplication Members
@@ -46,6 +47,12 @@ namespace SpeckleAutoCAD
             Application.DocumentManager.MdiActiveDocument.Editor.WriteMessage(docInfo);
 
             SpeckleWindow = new SpeckleUiWindow(bindings);
+
+            var helper = new System.Windows.Interop.WindowInteropHelper(SpeckleWindow);
+            helper.Owner = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
+
+            SpeckleWindow.Show();
+            Launched = true;
 
         }
     }
