@@ -8,7 +8,7 @@ using SpeckleAutoCAD.UI;
 
 namespace SpeckleAutoCAD
 {
-    public class Class1 : IExtensionApplication
+    public class Program : IExtensionApplication
     {
         public static SpeckleUiWindow SpeckleWindow;
 
