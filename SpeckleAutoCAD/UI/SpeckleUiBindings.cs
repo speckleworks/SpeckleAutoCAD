@@ -61,60 +61,83 @@ namespace SpeckleAutoCAD.UI
       return SNJ.JsonConvert.SerializeObject( SpeckleCore.LocalContext.GetAllAccounts() );
     }
 
-    public abstract string GetApplicationHostName();
-    public abstract string GetFileName();
-    public abstract string GetDocumentId();
-    public abstract string GetDocumentLocation();
+        #region Client Actions
 
-    /// <summary>
-    /// Returns the serialised clients present in the current open host file.
-    /// </summary>
-    /// <returns></returns>
-    public abstract string GetFileClients();
+        public override string GetApplicationHostName()
+        {
+            throw new NotImplementedException();
+        }
 
-    /// <summary>
-    /// Adds a sender and persits the info to the host file
-    /// </summary>
-    public abstract void AddSender( string args );
+        public override string GetFileName()
+        {
+            throw new NotImplementedException();
+        }
 
-    /// <summary>
-    /// Adds the current selection to the provided client.
-    /// </summary>
-    public abstract void AddSelectionToSender( string args );
+        public override string GetDocumentId()
+        {
+            throw new NotImplementedException();
+        }
 
-    /// <summary>
-    /// Removes the current selection from the provided client.
-    /// </summary>
-    /// <param name="args"></param>
-    public abstract void RemoveSelectionFromSender( string args );
+        public override string GetDocumentLocation()
+        {
+            throw new NotImplementedException();
+        }
 
-    /// <summary>
-    /// Adds a receiver and persits the info to the host file
-    /// </summary>
-    public abstract void AddReceiver( string args );
+        public override string GetFileClients()
+        {
+            throw new NotImplementedException();
+        }
 
-    /// <summary>
-    /// Removes a client from the file and persists the info to the host file.
-    /// </summary>
-    /// <param name="args"></param>
-    public abstract void RemoveClient( string args );
+        public override void AddSender(string args)
+        {
+            throw new NotImplementedException();
+        }
 
-    /// <summary>
-    /// Bakes the specified client in the host file.
-    /// </summary>
-    /// <param name="args"></param>
-    public abstract void BakeReceiver( string args );
+        public override void AddSelectionToSender(string args)
+        {
+            throw new NotImplementedException();
+        }
 
-    public abstract void UpdateSender( string args );
+        public override void RemoveSelectionFromSender(string args)
+        {
+            throw new NotImplementedException();
+        }
 
-    // TODO: See how we go about this
-    public abstract void AddObjectsToSender( string args );
-    public abstract void RemoveObjectsFromSender( string args );
-    
-    /// <summary>
-    /// clients should be able to select/preview/hover one way or another their associated objects
-    /// </summary>
-    /// <param name="args"></param>
-    public abstract void SelectClientObjects( string args );
-  }
+        public override void AddReceiver(string args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void RemoveClient(string args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void BakeReceiver(string args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void UpdateSender(string args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AddObjectsToSender(string args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void RemoveObjectsFromSender(string args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SelectClientObjects(string args)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+    }
 }
