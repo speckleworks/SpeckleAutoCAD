@@ -4,6 +4,7 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.Civil.ApplicationServices;
 using SpeckleUiBase;
+using SpeckleAutoCAD.UI;
 
 namespace SpeckleAutoCAD
 {
@@ -33,9 +34,12 @@ namespace SpeckleAutoCAD
             // Gets the current document, and prints some basic information about it
             // to the command editor window.
 
-            var bindings = new SpeckleUIBindings();
+            
 
             CivilDocument doc = Autodesk.Civil.ApplicationServices.CivilApplication.ActiveDocument;
+
+            var bindings = new SpeckleUIBindingsAutoCAD(doc);
+
             ObjectIdCollection alignments = doc.GetAlignmentIds();
             ObjectIdCollection sites = doc.GetSiteIds();
             String docInfo = String.Format("\nHello Speckle!");

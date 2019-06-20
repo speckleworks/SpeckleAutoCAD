@@ -52,6 +52,10 @@
       <HintPath>..\..\..\..\..\..\Program Files\Autodesk\AutoCAD 2020\C3D\AeccDbMgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="SpeckleNewtonsoft">
+      <HintPath>..\SpeckleUi\SpeckleCore\SpeckleNewtonsoft.dll</HintPath>
+      <Aliases>SpeckleNewtonsoft</Aliases>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -64,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\SpeckleUiBindings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpeckleUi\SpeckleCore\SpeckleCore\SpeckleCore.csproj">
