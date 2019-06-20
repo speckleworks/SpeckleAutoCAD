@@ -9,17 +9,18 @@ using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.Civil.ApplicationServices;
+using SpeckleCore;
 using SpeckleUiBase;
 
 namespace SpeckleAutoCAD.UI
 {
   public partial class SpeckleUIBindingsAutoCAD : SpeckleUIBindings
     {
+        public List<SpeckleStream> LocalState;
 
-    public SpeckleUIBindingsAutoCAD(CivilDocument _doc) : base()
+        public SpeckleUIBindingsAutoCAD(CivilDocument _doc) : base()
     {
-      SpeckleCore.SpeckleInitializer.Initialize();
-      SpeckleCore.LocalContext.Init();
+
     }
 
     /// <summary>
@@ -29,7 +30,7 @@ namespace SpeckleAutoCAD.UI
     /// <param name="eventInfo">The event args, which will be serialised to a string.</param>
     public void NotifyUi( string eventName, dynamic eventInfo )
     {
-      var script = string.Format( "window.EventBus.$emit('{0}', {1})", eventName, SNJ.JsonConvert.SerializeObject( eventInfo ) );
+ //     var script = string.Format( "window.EventBus.$emit('{0}', {1})", eventName, SNJ.JsonConvert.SerializeObject( eventInfo ) );
 
     }
 
