@@ -1,5 +1,5 @@
-﻿extern alias SpeckleNewtonsoft;
-using SNJ = SpeckleNewtonsoft.Newtonsoft.Json;
+﻿//extern alias SpeckleNewtonsoft;
+//using SNJ = SpeckleNewtonsoft.Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,53 +14,16 @@ using SpeckleUiBase;
 
 namespace SpeckleAutoCAD.UI
 {
-  public partial class SpeckleUIBindingsAutoCAD : SpeckleUIBindings
+    public partial class SpeckleUIBindingsAutoCAD : SpeckleUIBindings
     {
         public List<SpeckleStream> LocalState;
+        public CivilDocument ActiveDoc { get => Autodesk.Civil.ApplicationServices.CivilApplication.ActiveDocument; }
 
         public SpeckleUIBindingsAutoCAD(CivilDocument _doc) : base()
-    {
+        {
 
-    }
+        }
 
-    /// <summary>
-    /// Sends an event to the UI, bound to the global EventBus.
-    /// </summary>
-    /// <param name="eventName">The event's name.</param>
-    /// <param name="eventInfo">The event args, which will be serialised to a string.</param>
-    public void NotifyUi( string eventName, dynamic eventInfo )
-    {
- //     var script = string.Format( "window.EventBus.$emit('{0}', {1})", eventName, SNJ.JsonConvert.SerializeObject( eventInfo ) );
-
-    }
-
-    /// <summary>
-    /// Dispatches a store action directly. Please note, this will not work for any action.
-    /// </summary>
-    /// <param name="storeActionName"></param>
-    /// <param name="args"></param>
-    public void DispatchStoreActionUi( string storeActionName, string args = null )
-    {
-      var script = string.Format( "window.Store.dispatch('{0}', '{1}')", storeActionName, args );
-
-    }
-
-    /// <summary>
-    /// Pops open the dev tools.
-    /// </summary>
-    public void ShowDev()
-    {
- //     Browser.ShowDevTools();
-    }
-
-    /// <summary>
-    /// Gets the current accounts.
-    /// </summary>
-    /// <returns></returns>
-    public string GetAccounts()
-    {
-      return SNJ.JsonConvert.SerializeObject( SpeckleCore.LocalContext.GetAllAccounts() );
-    }
 
         #region Client Actions
 
@@ -71,7 +34,9 @@ namespace SpeckleAutoCAD.UI
 
         public override string GetFileName()
         {
-            throw new NotImplementedException();
+            //return ActiveDoc.id
+            //   throw new NotImplementedException();
+            return "test";
         }
 
         public override string GetDocumentId()
@@ -135,6 +100,16 @@ namespace SpeckleAutoCAD.UI
         }
 
         public override void SelectClientObjects(string args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void PushSender(string args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<ISelectionFilter> GetSelectionFilters()
         {
             throw new NotImplementedException();
         }

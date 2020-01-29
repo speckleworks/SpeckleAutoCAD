@@ -4,6 +4,7 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.Civil.ApplicationServices;
 using SpeckleUiBase;
+using SpeckleCore;
 using SpeckleAutoCAD.UI;
 
 namespace SpeckleAutoCAD
