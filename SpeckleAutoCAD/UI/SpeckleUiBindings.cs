@@ -17,7 +17,9 @@ namespace SpeckleAutoCAD.UI
     public partial class SpeckleUIBindingsAutoCAD : SpeckleUIBindings
     {
         public List<SpeckleStream> LocalState;
-        public CivilDocument ActiveDoc { get => Autodesk.Civil.ApplicationServices.CivilApplication.ActiveDocument; }
+        public CivilDocument ActiveDocCivil { get => Autodesk.Civil.ApplicationServices.CivilApplication.ActiveDocument; }
+        public Document doc { get => Application.DocumentManager.MdiActiveDocument; }
+        public Document AcadDoc { get => Application.DocumentManager.CurrentDocument; }
 
         public SpeckleUIBindingsAutoCAD(CivilDocument _doc) : base()
         {
@@ -29,24 +31,23 @@ namespace SpeckleAutoCAD.UI
 
         public override string GetApplicationHostName()
         {
-            throw new NotImplementedException();
+            return "Civil3D";
         }
 
         public override string GetFileName()
         {
-            //return ActiveDoc.id
-            //   throw new NotImplementedException();
-            return "test";
+            return doc.Name;
         }
 
         public override string GetDocumentId()
         {
-            throw new NotImplementedException();
+
+            return Application.InfoCenter.Host.Handle.ToString();
         }
 
         public override string GetDocumentLocation()
         {
-            throw new NotImplementedException();
+            return doc.Database.Filename;
         }
 
         public override string GetFileClients()

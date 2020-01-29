@@ -39,6 +39,8 @@ namespace SpeckleAutoCAD
             
 
             CivilDocument doc = Autodesk.Civil.ApplicationServices.CivilApplication.ActiveDocument;
+            Document Cdoc = Application.DocumentManager.MdiActiveDocument; 
+            Document AcadDoc = Application.DocumentManager.CurrentDocument; 
 
             var bindings = new SpeckleUIBindingsAutoCAD(doc);
 
