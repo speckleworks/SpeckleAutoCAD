@@ -26,7 +26,6 @@ namespace SpeckleAutoCAD.UI
 
         }
 
-
         #region Client Actions
 
         public override string GetApplicationHostName()
@@ -52,16 +51,19 @@ namespace SpeckleAutoCAD.UI
 
         public override string GetFileClients()
         {
+            // This one is for getting the clients for a particular Civil3D file/document (retrieving streamids/filters etc into the file)
             throw new NotImplementedException();
         }
 
         public override void AddSender(string args)
         {
+            // this also sets the stream ids into the Civil3D file new and existing
             throw new NotImplementedException();
         }
 
         public override void AddSelectionToSender(string args)
         {
+
             throw new NotImplementedException();
         }
 
@@ -72,6 +74,7 @@ namespace SpeckleAutoCAD.UI
 
         public override void AddReceiver(string args)
         {
+            // this also sets the stream ids into the Civil3D file new and existing
             throw new NotImplementedException();
         }
 
@@ -82,6 +85,7 @@ namespace SpeckleAutoCAD.UI
 
         public override void BakeReceiver(string args)
         {
+            // bake button brings geometry into Civil3D
             throw new NotImplementedException();
         }
 
@@ -102,16 +106,19 @@ namespace SpeckleAutoCAD.UI
 
         public override void SelectClientObjects(string args)
         {
+            // select elements
             throw new NotImplementedException();
         }
 
         public override void PushSender(string args)
         {
+            // manual send
             throw new NotImplementedException();
         }
 
         public override List<ISelectionFilter> GetSelectionFilters()
         {
+            // get filters from client
             throw new NotImplementedException();
         }
 
